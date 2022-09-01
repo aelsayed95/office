@@ -11,6 +11,7 @@ Welcome to The Office's documentation!
    :caption: Contents:
 
 
+   modules
 
 Indices and tables
 ==================
