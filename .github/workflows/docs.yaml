@@ -31,4 +31,6 @@ jobs:
       - name: Deploy docs
         run: |
           cd docs/_build
-          ls
+          git add --all
+          git commit -m "deploy documentation updates"
+          git push origin gh-pages
