@@ -33,8 +33,14 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+html_theme = 'furo'
 html_static_path = ['_static']
 html_sidebars = {
     "**": ["versioning.html"]
 }
+
+# -- Sphinx Multiversion --------------------------------------------------
+# https://holzhaus.github.io/sphinx-multiversion/master/configuration.html#
+smv_tag_whitelist = r'^v\d+\.\d+\.\d+$'
+smv_branch_whitelist = r'^.*$'
+smv_remote_whitelist = r'^.*$'

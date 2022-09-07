@@ -1,13 +1,12 @@
 name: Deploy Documentation
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - master
 
 jobs:
   deploy_docs:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v3
@@ -15,19 +14,19 @@ jobs:
           python-version: "3.10"
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme
+          pip install sphinx furo sphinx_multiversion
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Git config
+      - name: Git Config
         run: |
           git config user.email "ayah.ehab11@gmail.com"
           git config user.name "Aya Elsayed"
       - name: Sphinx build
         run: |
+          git branch -a
           git worktree add docs/_build/html gh-pages
-          cd docs
-          make html
+          sphinx-multiversion docs ./docs/_build/html
       - name: Deploy docs
         run: |
           cd docs/_build/html
