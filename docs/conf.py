@@ -23,9 +23,8 @@ author = 'Aya Elsayed'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.githubpages', 'sphinx_multiversion']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.githubpages', 'sphinx.ext.napoleon', 'sphinx_multiversion']
 
-templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 
@@ -34,9 +33,15 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'furo'
+templates_path = ['_templates']
 html_static_path = ['_static']
 html_sidebars = {
-    "**": ["versioning.html"]
+    "**": [
+        "sidebar/brand.html",
+        "sidebar/search.html",
+        "sidebar/navigation.html",
+        "sidebar/versions.html",
+    ],
 }
 
 # -- Sphinx Multiversion --------------------------------------------------
