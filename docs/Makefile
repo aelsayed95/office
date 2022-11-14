@@ -24,5 +24,3 @@ api-docs:
 
 clean:
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O);
-	cd _build; git worktree add -f html gh-pages
-
