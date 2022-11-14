@@ -1,4 +1,4 @@
 .vscode
-_build
+_build/doctrees
 venv
 __pycache__/
